@@ -21,7 +21,13 @@ Part 2 - write
 a collection of data that is used by any component that needs its data. 
 
 ## What is a reducer? What does the reducer do for us in Redux?
+a reducer is a function. it takes in state and action and returns a modified copy of state. this is the only way to modify state in redux. 
 
 ## What is immutability? Why do we use it?
+Data is considered immutable when functions that use the data don't mutate it but insteadreturn a modified copy. Because the data is a reference (to an object or array), we'll trivially be able to tell that the data has changed, without needing to dig through the object to see what exactly changed. This is useful in React to know if a component should re-render, or doesn't need to bother.
 
+##Vocab 
+*action: a plain object. all actions have a type, but payload is optional. 
+*action creator: a function that creates actions for us. keeps code DRY.
+*dispatch: we send actions to the store using dispatch
 
