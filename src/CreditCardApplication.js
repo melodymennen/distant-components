@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { setIsCreditCardHolder } from './ducks/reducer';
 
 class CreditCardApplication extends Component {
   render() {
-    const { loggedInAs, isCreditCardHolder } = this.props;
+    const { loggedInAs, isCreditCardHolder, dispatch } = this.props;
 
     return (
       <div className="credit-card-application">
@@ -11,7 +12,7 @@ class CreditCardApplication extends Component {
         {loggedInAs && <div>
           {!isCreditCardHolder && <div>
             <p>Hi {loggedInAs}, apply now!</p>
-            <p><button className="button">Yes, sign me up!</button></p>
+            <p><button className="button" onClick={() => dispatch(setIsCreditCardHolder())}>Yes, sign me up!</button></p>
           </div>}
           {isCreditCardHolder && "Thanks for signing up!"}
         </div>}
